@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Grildos Office Express | Pastelería y café para oficinas en Tunja</title>
+
+  <meta 
+    name="description" 
+    content="Grildos Office Express lleva café, bebidas, cupcakes, postres y detalles especiales directamente a oficinas en Tunja."
+  />
+
+  <style>
+    /* =========================
+       VARIABLES DE MARCA
+    ========================== */
+    :root {
+      --cyan: #00f5f5;
+      --magenta: #f72585;
+      --purple-dark: #13051f;
+      --purple: #2b0b3f;
+      --violet: #5b1b75;
+      --lilac: #d9b8ff;
+      --lime: #d8f24a;
+      --cream: #fff7ea;
+      --pink: #ffd6e8;
+      --muted: rgba(255, 247, 234, 0.72);
+      --card: rgba(255, 247, 234, 0.08);
+      --border: rgba(255, 247, 234, 0.16);
+      --shadow-cyan: 0 0 45px rgba(0, 245, 245, 0.22);
+      --shadow-magenta: 0 22px 70px rgba(247, 37, 133, 0.25);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --max-width: 1120px;
+    }
+
+    /* =========================
+       RESET Y BASE
+    ========================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(0, 245, 245, 0.18), transparent 28%),
+        radial-gradient(circle at 90% 8%, rgba(247, 37, 133, 0.18), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(216, 242, 74, 0.08), transparent 30%),
+        var(--purple-dark);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .container {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      max-width: 850px;
+    }
+
+    .section-text {
+      margin-top: 22px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--cyan), var(--magenta), var(--lime));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 15px 24px;
+      font-weight: 900;
+      transition: 0.25s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 0.98rem;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: #08141c;
+      box-shadow: var(--shadow-cyan);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: var(--lime);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 247, 234, 0.28);
+      color: var(--cream);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      transform: translateY(-3px);
+    }
+
+    .btn-magenta {
+      background: var(--magenta);
+      color: white;
+      box-shadow: var(--shadow-magenta);
+    }
+
+    .btn-magenta:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: #ff4aa0;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(19, 5, 31, 0.82);
+      border-bottom: 1px solid rgba(255, 247, 234, 0.1);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 950;
+      letter-spacing: -0.04em;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, var(--cyan), var(--magenta));
+      display: grid;
+      place-items: center;
+      color: #13051f;
+      font-weight: 950;
+      box-shadow: 0 0 28px rgba(0, 245, 245, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.92rem;
+      color: rgba(255, 247, 234, 0.78);
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-action {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+    .hero {
+      position: relative;
+      padding: 98px 0 76px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 54px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.1rem, 7.5vw, 6.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      color: var(--pink);
+      font-size: clamp(1.18rem, 2.2vw, 1.55rem);
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 560px;
+    }
+
+    .metric {
+      border-radius: 20px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.7rem;
+      color: var(--cyan);
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 7px;
+      color: rgba(255, 247, 234, 0.65);
+      font-size: 0.82rem;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 36px;
+      padding: 24px;
+      box-shadow: var(--shadow-magenta);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -50px;
+      top: -40px;
+      background: rgba(0, 245, 245, 0.22);
+      filter: blur(28px);
+      border-radius: 50%;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(43, 11, 63, 0.95), rgba(91, 27, 117, 0.8));
+      padding: 28px;
+      border: 1px solid rgba(255, 247, 234, 0.12);
+    }
+
+    .logo-text {
+      font-size: clamp(2.6rem, 5vw, 4.5rem);
+      line-height: 0.9;
+      font-weight: 950;
+      letter-spacing: -0.08em;
+      color: var(--cyan);
+      text-shadow:
+        0 0 18px rgba(0, 245, 245, 0.45),
+        8px 8px 0 rgba(216, 242, 74, 0.15);
+      margin-bottom: 10px;
+    }
+
+    .logo-sub {
+      display: inline-flex;
+      gap: 18px;
+      color: var(--pink);
+      font-weight: 950;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 26px;
+    }
+
+    .menu-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .preview-item {
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(19, 5, 31, 0.65);
+      border: 1px solid rgba(255, 247, 234, 0.1);
+    }
+
+    .preview-item .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .preview-item h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .preview-item p {
+      font-size: 0.86rem;
+      color: rgba(255, 247, 234, 0.68);
+    }
+
+    .order-example {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 245, 245, 0.35);
+      background: rgba(0, 245, 245, 0.08);
+    }
+
+    .order-example strong {
+      color: var(--cyan);
+    }
+
+    .order-example p {
+      margin-top: 6px;
+      color: rgba(255, 247, 234, 0.75);
+      font-size: 0.92rem;
+    }
+
+    /* =========================
+       GRIDS Y TARJETAS
+    ========================== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .card {
+      border-radius: var(--radius-xl);
+      padding: 32px;
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(0, 245, 245, 0.12);
+      color: var(--cyan);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .cards-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .info-card {
+      border-radius: 28px;
+      padding: 26px;
+      transition: 0.25s ease;
+      height: 100%;
+    }
+
+    .info-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 245, 245, 0.45);
+    }
+
+    .info-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      color: rgba(255, 247, 234, 0.7);
+      font-size: 0.97rem;
+    }
+
+    .highlight-section {
+      border-radius: 42px;
+      padding: 52px;
+      background:
+        linear-gradient(135deg, rgba(43, 11, 63, 0.96), rgba(91, 27, 117, 0.88), rgba(247, 37, 133, 0.72));
+      box-shadow: var(--shadow-magenta);
+      border: 1px solid rgba(255, 247, 234, 0.13);
+    }
+
+    /* =========================
+       PRODUCTOS
+    ========================== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 38px;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 26px;
+      min-height: 220px;
+    }
+
+    .product-card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      right: -24px;
+      bottom: -24px;
+      border-radius: 50%;
+      background: rgba(0, 245, 245, 0.12);
+    }
+
+    .product-card span {
+      display: inline-flex;
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+    }
+
+    .product-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .product-card p {
+      color: rgba(255, 247, 234, 0.72);
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       CLIENTE Y MVP
+    ========================== */
+    .persona {
+      border-radius: 38px;
+      padding: 38px;
+      background: rgba(0, 245, 245, 0.09);
+      border: 1px solid rgba(0, 245, 245, 0.26);
+    }
+
+    .persona-tags {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tag-box {
+      background: rgba(19, 5, 31, 0.5);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .tag-box strong {
+      display: block;
+      color: var(--lime);
+      margin-bottom: 4px;
+    }
+
+    .tag-box span {
+      color: rgba(255, 247, 234, 0.68);
+      font-size: 0.88rem;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .step-number {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--cyan);
+      color: #08141c;
+      font-weight: 950;
+    }
+
+    .qr-box {
+      min-height: 330px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: 34px;
+      padding: 30px;
+    }
+
+    .qr-visual {
+      width: 152px;
+      height: 152px;
+      background:
+        linear-gradient(90deg, #111 12px, transparent 12px) 0 0 / 28px 28px,
+        linear-gradient(#111 12px, transparent 12px) 0 0 / 28px 28px,
+        #fff;
+      border-radius: 18px;
+      margin: 0 auto 22px;
+      border: 10px solid #fff;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+    }
+
+    /* =========================
+       CONTACTO
+    ========================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .form {
+      border-radius: 34px;
+      padding: 30px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 247, 234, 0.14);
+      background: rgba(19, 5, 31, 0.68);
+      color: var(--cream);
+      border-radius: 18px;
+      padding: 14px 15px;
+      outline: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0, 245, 245, 0.08);
+    }
+
+    .form-note {
+      margin-top: 14px;
+      color: rgba(255, 247, 234, 0.56);
+      font-size: 0.82rem;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+    .footer {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 245, 245, 0.14), transparent 24%),
+        linear-gradient(135deg, var(--purple), var(--purple-dark), rgba(247, 37, 133, 0.64));
+      border-top: 1px solid rgba(0, 245, 245, 0.18);
+      padding: 54px 0 26px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.9fr;
+      gap: 30px;
+    }
+
+    .footer h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: rgba(255, 247, 234, 0.72);
+      font-size: 0.95rem;
+    }
+
+    .footer a:hover {
+      color: var(--lime);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-bottom {
+      margin-top: 38px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 247, 234, 0.1);
+      text-align: center;
+      color: rgba(255, 247, 234, 0.62);
+      font-size: 0.88rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+    @media (max-width: 980px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .nav-action {
+        width: 100%;
+      }
+
+      .nav-action .btn {
+        width: 100%;
+      }
+
+      .hero-grid,
+      .two-col,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-3,
+      .product-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      section {
+        padding: 68px 0;
+      }
+
+      .hero h1 {
+        font-size: 3.35rem;
+      }
+
+      .hero-actions,
+      .contact-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .metrics,
+      .cards-3,
+      .cards-2,
+      .product-grid,
+      .persona-tags,
+      .menu-preview,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight-section {
+        padding: 30px;
+        border-radius: 30px;
+      }
+
+      .card,
+      .persona,
+      .form {
+        padding: 24px;
+      }
+
+      .nav-links {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================
+       HEADER / MENÚ SUPERIOR
+  ========================== -->
+  <header class="header">
+    <nav class="nav" aria-label="Menú principal">
+      <a href="#inicio" class="brand" aria-label="Ir al inicio">
+        <span class="brand-mark">G</span>
+        <span>Grildos Office Express</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#problema">Problema</a>
+        <a href="#solucion">Solución</a>
+        <a href="#valor">Valor</a>
+        <a href="#productos">Productos</a>
+        <a href="#mvp">MVP</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="nav-action">
+        <a class="btn btn-primary" href="https://wa.me/573001234567?text=Hola%20Grildos%2C%20quiero%20hacer%20un%20pedido%20para%20mi%20oficina%20en%20Tunja." target="_blank" rel="noopener">
+          💬 Pedir ahora
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         HERO PRINCIPAL
+    ========================== -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">✨ Pastelería de autor para oficinas en Tunja</div>
+
+          <h1>
+            Grildos <span class="gradient-text">Office Express</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Pastelería, café y detalles para oficinas en Tunja.
+          </p>
+
+          <p class="hero-copy">
+            Llevamos el tinto con amor, la pastelería y los detalles especiales directamente a tu oficina.
+            Una solución express para reuniones, visitas, pausas laborales y momentos corporativos que necesitan
+            buena presentación sin perder tiempo.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/573001234567?text=Hola%20Grildos%2C%20quiero%20hacer%20un%20pedido%20ahora." target="_blank" rel="noopener">
+              Haz tu pedido ahora →
+            </a>
+            <a class="btn btn-secondary" href="#productos">
+              Ver combos de oficina
+            </a>
+          </div>
+
+          <div class="metrics">
+            <div class="metric glass">
+              <strong>30</strong>
+              <span>días de piloto</span>
+            </div>
+            <div class="metric glass">
+              <strong>QR</strong>
+              <span>en oficinas</span>
+            </div>
+            <div class="metric glass">
+              <strong>B2B</strong>
+              <span>combos empresa</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card glass" aria-label="Vista previa del servicio Grildos Office Express">
+          <div class="hero-card-inner">
+            <div class="logo-text">Grildos</div>
+            <div class="logo-sub">
+              <span>PASTRY</span>
+              <span>&</span>
+              <span>BAKERY</span>
+            </div>
+
+            <div class="menu-preview">
+              <div class="preview-item">
+                <span class="icon">☕</span>
+                <h3>Café para reuniones</h3>
+                <p>Tintos, cafés y bebidas calientes para atender clientes y equipos de trabajo.</p>
+              </div>
+
+              <div class="preview-item">
+                <span class="icon">🧁</span>
+                <h3>Pastelería express</h3>
+                <p>Cupcakes, postres y detalles con presentación artesanal y corporativa.</p>
+              </div>
+            </div>
+
+            <div class="order-example">
+              <strong>Pedido típico:</strong>
+              <p>
+                “Combo reunión para 8 personas, entrega en Edificio Enterprise antes de las 10:00 a. m.”
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROBLEMA
+    ========================== -->
+    <section id="problema">
+      <div class="container two-col">
+        <div>
+          <div class="eyebrow">⚠️ El problema</div>
+          <h2 class="section-title">
+            La atención de oficina no debería resolverse a última hora.
+          </h2>
+        </div>
+
+        <article class="card glass">
+          <div class="card-icon">⏰</div>
+          <p class="section-text" style="margin-top:0;">
+            Muchas oficinas en Tunja no cuentan con personal de servicios generales o no tienen tiempo para salir a
+            comprar café, bebidas o detalles para reuniones. Esto genera improvisación, pérdida de tiempo y riesgo de
+            quedar mal frente a clientes, visitantes o equipos de trabajo.
+          </p>
+          <p class="section-text">
+            En edificios empresariales como el Edificio Enterprise y el Edificio Marca, una pausa laboral o una reunión
+            importante necesita una solución rápida, confiable y bien presentada.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         SOLUCIÓN
+    ========================== -->
+    <section id="solucion">
+      <div class="container">
+        <div style="text-align:center; max-width:860px; margin:0 auto;">
+          <div class="eyebrow">✅ La solución</div>
+          <h2 class="section-title" style="margin:0 auto;">
+            Pedidos digitales, atención cercana y entrega directa a la oficina.
+          </h2>
+          <p class="section-text" style="margin-left:auto; margin-right:auto;">
+            Grildos Office Express permite revisar el menú, pedir por WhatsApp, coordinar el pago digital y recibir café,
+            bebidas, cupcakes, postres y detalles especiales sin que el equipo tenga que salir de la oficina.
+          </p>
+        </div>
+
+        <div class="cards-3">
+          <article class="info-card glass">
+            <div class="card-icon">📱</div>
+            <h3>Pedido simple</h3>
+            <p>El cliente escanea un QR, revisa el menú digital y escribe por WhatsApp o formulario visual.</p>
+          </article>
+
+          <article class="info-card glass">
+            <div class="card-icon">💳</div>
+            <h3>Pago fácil</h3>
+            <p>El pedido se confirma digitalmente para reducir fricción y evitar compras improvisadas.</p>
+          </article>
+
+          <article class="info-card glass">
+            <div class="card-icon">🚚</div>
+            <h3>Entrega express</h3>
+            <p>El producto llega a la oficina con presentación dulce, artesanal, moderna y profesional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROPUESTA DE VALOR
+    ========================== -->
+    <section id="valor">
+      <div class="container">
+        <div class="highlight-section">
+          <div class="eyebrow" style="color:var(--lime);">💎 Propuesta de valor</div>
+
+          <h2 class="section-title">
+            Grildos no vende solamente café o pastelería; vende tiempo, atención y cercanía.
+          </h2>
+
+          <div class="cards-3">
+            <article class="info-card" style="background:rgba(19,5,31,0.42);">
+              <div class="card-icon">⏱️</div>
+              <h3>Ahorro de tiempo</h3>
+              <p>
+                La oficina no pierde minutos valiosos saliendo a comprar café, bebidas o postres para una reunión.
+              </p>
+            </article>
+
+            <article class="info-card" style="background:rgba(19,5,31,0.42);">
+              <div class="card-icon">🤝</div>
+              <h3>Atención cálida y confiable</h3>
+              <p>
+                Una solución cercana para atender clientes, visitantes y equipos de trabajo con tranquilidad.
+              </p>
+            </article>
+
+            <article class="info-card" style="background:rgba(19,5,31,0.42);">
+              <div class="card-icon">🎁</div>
+              <h3>Presentación artesanal</h3>
+              <p>
+                Productos con estética cuidada, sabor de pastelería de autor y una imagen que deja bien a la empresa.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PRODUCTOS O SERVICIOS
+    ========================== -->
+    <section id="productos">
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; gap:24px; align-items:flex-end; flex-wrap:wrap;">
+          <div>
+            <div class="eyebrow">🧁 Menú express</div>
+            <h2 class="section-title">
+              Productos pensados para oficinas, reuniones y momentos especiales.
+            </h2>
+          </div>
+
+          <a class="btn btn-magenta" href="#contacto">
+            Agenda un pedido
+          </a>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card glass">
+            <span>☕</span>
+            <h3>Café y bebidas calientes</h3>
+            <p>Tintos, cafés y bebidas calientes para pausas laborales, visitas y reuniones.</p>
+          </article>
+
+          <article class="product-card glass">
+            <span>🥤</span>
+            <h3>Bebidas frías</h3>
+            <p>Opciones refrescantes para equipos de trabajo, clientes y jornadas de oficina.</p>
+          </article>
+
+          <article class="product-card glass">
+            <span>🧁</span>
+            <h3>Cupcakes y postres</h3>
+            <p>Pastelería de autor con presentación cuidada para compartir o sorprender.</p>
+          </article>
+
+          <article class="product-card glass">
+            <span>👥</span>
+            <h3>Combos para reuniones</h3>
+            <p>Soluciones listas para juntas, visitas comerciales y pausas corporativas.</p>
+          </article>
+
+          <article class="product-card glass">
+            <span>🎀</span>
+            <h3>Detalles para fechas especiales</h3>
+            <p>Opciones dulces para cumpleaños, reconocimientos, aniversarios y celebraciones.</p>
+          </article>
+
+          <article class="product-card glass">
+            <span>📅</span>
+            <h3>Pedidos programados</h3>
+            <p>Atención semanal o mensual para empresas que quieren resolver sus pausas sin improvisar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CLIENTE OBJETIVO
+    ========================== -->
+    <section id="cliente">
+      <div class="container persona">
+        <div class="two-col">
+          <div>
+            <div class="eyebrow">🎯 Cliente objetivo</div>
+            <h2 class="section-title">
+              Laura, coordinadora administrativa en Tunja.
+            </h2>
+          </div>
+
+          <div>
+            <p class="section-text" style="margin-top:0;">
+              Laura trabaja en una oficina del Edificio Enterprise. Organiza reuniones, recibe visitantes, coordina
+              detalles internos y necesita resolver rápidamente la atención de clientes o equipos de trabajo.
+            </p>
+
+            <p class="section-text">
+              Para Laura, Grildos Office Express es una solución práctica: puede revisar el menú, escribir por WhatsApp,
+              pagar digitalmente y recibir café, bebidas o pastelería con una presentación que deja bien a la empresa.
+            </p>
+
+            <div class="persona-tags">
+              <div class="tag-box">
+                <strong>Necesidad</strong>
+                <span>Atender sin perder tiempo.</span>
+              </div>
+
+              <div class="tag-box">
+                <strong>Motivación</strong>
+                <span>Buena presentación.</span>
+              </div>
+
+              <div class="tag-box">
+                <strong>Canal</strong>
+                <span>WhatsApp, Instagram y QR.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         MODELO DE NEGOCIO Y CANALES
+    ========================== -->
+    <section id="modelo">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <div class="eyebrow">📈 Modelo de negocio</div>
+            <h2 class="section-title">
+              Ingresos por venta directa, combos y atención recurrente para empresas.
+            </h2>
+            <p class="section-text">
+              El proyecto genera ingresos por productos de pastelería y bebidas, pero también abre la posibilidad de
+              vender soluciones corporativas: combos para reuniones, detalles de fechas especiales y planes recurrentes
+              para oficinas que necesitan atención semanal o mensual.
+            </p>
+          </div>
+
+          <div class="cards-2" style="margin-top:0;">
+            <article class="info-card glass">
+              <div class="card-icon">💰</div>
+              <h3>Venta directa</h3>
+              <p>Café, bebidas calientes, bebidas frías, cupcakes y postres.</p>
+            </article>
+
+            <article class="info-card glass">
+              <div class="card-icon">🏢</div>
+              <h3>Combos corporativos</h3>
+              <p>Soluciones listas para reuniones, visitas comerciales y pausas de equipo.</p>
+            </article>
+
+            <article class="info-card glass">
+              <div class="card-icon">🔁</div>
+              <h3>Pedidos programados</h3>
+              <p>Planes recurrentes para empresas que quieren atención constante.</p>
+            </article>
+
+            <article class="info-card glass">
+              <div class="card-icon">✨</div>
+              <h3>Fechas especiales</h3>
+              <p>Detalles corporativos para cumpleaños, aniversarios y reconocimientos.</p>
+            </article>
+          </div>
+        </div>
+
+        <div id="canales" class="cards-3">
+          <article class="info-card glass">
+            <div class="card-icon">🌐</div>
+            <h3>Landing page</h3>
+            <p>Funciona como menú digital, carta de presentación y punto de conversión.</p>
+          </article>
+
+          <article class="info-card glass">
+            <div class="card-icon">💬</div>
+            <h3>WhatsApp Business</h3>
+            <p>Canal principal para pedidos, confirmaciones, pagos y recompra.</p>
+          </article>
+
+          <article class="info-card glass">
+            <div class="card-icon">📸</div>
+            <h3>Instagram y Meta Business Suite</h3>
+            <p>Canales para mostrar productos, activar promociones y atraer nuevos clientes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         VALIDACIÓN / MVP
+    ========================== -->
+    <section id="mvp">
+      <div class="container">
+        <div style="text-align:center; max-width:860px; margin:0 auto;">
+          <div class="eyebrow" style="color:var(--lime);">🧪 Validación del prototipo</div>
+          <h2 class="section-title" style="margin:0 auto;">
+            Un piloto de 30 días para medir pedidos, recompra, satisfacción y tiempo de entrega.
+          </h2>
+        </div>
+
+        <div class="two-col" style="margin-top:42px; align-items:start;">
+          <div class="qr-box glass">
+            <div>
+              <div class="qr-visual" aria-hidden="true"></div>
+              <h3>QR en oficinas</h3>
+              <p class="section-text" style="margin-left:auto; margin-right:auto;">
+                Ubicado en puntos visibles del Edificio Enterprise para activar pedidos rápidos desde el celular.
+              </p>
+            </div>
+          </div>
+
+          <div class="steps">
+            <div class="step glass">
+              <div class="step-number">1</div>
+              <p>El cliente ve una publicación o escanea un código QR ubicado en oficinas del Edificio Enterprise.</p>
+            </div>
+
+            <div class="step glass">
+              <div class="step-number">2</div>
+              <p>Revisa el menú digital y los combos disponibles para reuniones o pausas laborales.</p>
+            </div>
+
+            <div class="step glass">
+              <div class="step-number">3</div>
+              <p>Hace el pedido por WhatsApp o a través del formulario visual de la landing page.</p>
+            </div>
+
+            <div class="step glass">
+              <div class="step-number">4</div>
+              <p>Confirma el pago digital y recibe la hora estimada de entrega.</p>
+            </div>
+
+            <div class="step glass">
+              <div class="step-number">5</div>
+              <p>Recibe el pedido en su oficina con presentación artesanal y atención cercana.</p>
+            </div>
+
+            <div class="step glass">
+              <div class="step-number">6</div>
+              <p>Recomienda, vuelve a pedir o agenda una atención recurrente para su empresa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+    <section id="contacto">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">📩 Contacto</div>
+          <h2 class="section-title">
+            Haz tu pedido, agenda una reunión o solicita combos para tu oficina.
+          </h2>
+
+          <p class="section-text">
+            Esta landing page funciona como menú digital, canal de contacto y prototipo de validación para medir el
+            interés real de oficinas en Tunja.
+          </p>
+
+          <div class="contact-buttons">
+            <a class="btn btn-primary" href="https://wa.me/573001234567?text=Hola%20Grildos%2C%20quiero%20hacer%20un%20pedido%20para%20mi%20oficina." target="_blank" rel="noopener">
+              💬 WhatsApp
+            </a>
+
+            <a class="btn btn-magenta" href="https://instagram.com/grildospastry" target="_blank" rel="noopener">
+              📸 Instagram
+            </a>
+
+            <a class="btn btn-secondary" href="mailto:contacto@grildos.com">
+              ✉️ Correo
+            </a>
+          </div>
+        </div>
+
+        <form class="form glass" aria-label="Formulario visual de contacto">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" placeholder="Ej: Laura Gómez" />
+          </div>
+
+          <div class="field">
+            <label for="oficina">Oficina o empresa</label>
+            <input id="oficina" type="text" placeholder="Ej: Oficina 502, Edificio Enterprise" />
+          </div>
+
+          <div class="field">
+            <label for="producto">Producto de interés</label>
+            <select id="producto">
+              <option>Selecciona una opción</option>
+              <option>Café y bebidas calientes</option>
+              <option>Cupcakes y postres</option>
+              <option>Combos para reuniones</option>
+              <option>Detalles corporativos</option>
+              <option>Pedido programado para empresa</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" placeholder="Cuéntanos qué necesitas, para cuántas personas y hora estimada de entrega."></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="button">
+            Enviar solicitud visual →
+          </button>
+
+          <p class="form-note">
+            Este formulario es parte del prototipo visual. Para pedidos reales, el canal principal sugerido es WhatsApp Business.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Grildos Pastry & Bakery</h3>
+          <p>
+            Pastelería, café y detalles con amor para oficinas y momentos especiales en Tunja.
+          </p>
+        </div>
+
+        <div>
+          <h3>Enlaces rápidos</h3>
+          <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#problema">Problema</a>
+            <a href="#solucion">Solución</a>
+            <a href="#productos">Productos</a>
+            <a href="#mvp">MVP</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Contacto</h3>
+          <p>📍 Edificio Enterprise, Tunja</p>
+          <p>💬 WhatsApp: +57 300 123 4567</p>
+          <p>📸 Instagram: @grildospastry</p>
+          <p>✉️ contacto@grildos.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="year"></span> Grildos Pastry & Bakery. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Año dinámico para el footer */
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
